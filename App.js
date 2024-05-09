@@ -4,12 +4,12 @@ import HomeScreen from './screens/HomeScreen';
 import PhotosScreen from './screens/PhotosScreen';
 import PrivateScreen from './screens/PrivateScreen';
 import DevelopmentScreen from './screens/DevelopmentScreen';
-
 // the tab navigation import
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// Icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
-// import { Feather } from '@expo/vector-icons';
 
 // function HomeScreen() {
 //   return (
@@ -17,12 +17,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 //   );
 // }
 
+// Tab navigator
 const Tab = createBottomTabNavigator();
+// stack navigator
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     // Add navigation here
     <NavigationContainer>
+      {/* Tab */}
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -52,6 +56,10 @@ export default function App() {
         <Tab.Screen name="Private" component={PrivateScreen} />
         <Tab.Screen name="Dev" component={DevelopmentScreen} />
       </Tab.Navigator>
+      {/* Stack */}
+      {/* <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator> */}
     </NavigationContainer>
     // <HomeScreen />
   );
